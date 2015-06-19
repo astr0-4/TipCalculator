@@ -32,11 +32,32 @@
 
 - (IBAction)calculateTip:(id)sender {
     
-    NSNumber *billValu
-
     double billValue = [self.billAmountTextField.text doubleValue];
+    
     double tipPercentage = [self.tipPercentage.text doubleValue]/100;
-    self.tipAmountLabel.text = [NSString stringWithFormat: @"%f", billValue *tipPercentage];
+    
+    NSNumberFormatter *numberFormat = [[NSNumberFormatter alloc] init];
+    NSNumber *billValueAsNSNumber = [numberFormat numberFromString:self.billAmountTextField.text];
+    NSNumber *tipPercentageAsNSNumber = [numberFormat numberFromString:self.tipAmountLabel.text];
+    float finalNumber = 0;
+   
+    if(billValueAsNSNumber && tipPercentageAsNSNumber) {
+        
+        finalNumber = billValue * tipPercentage;
+        NSNumber *finalNSNumber = [NSNumber numberWithFloat:finalNumber];
+        
+        [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormat  setMaximumFractionDigits:2];
+        [numberFormat setNumberStyle:NSNumberFormatterCurrencyStyle];
+        
+        NSString *finalString = [numberFormat stringFromNumber:finalNSNumber];
+        self.tipAmountLabel.text = finalString;
+
+    }
+    else {
+        self.tipAmountLabel.text = @"Please enter a real number for tip percentage and bill amount.";
+    }
+
 }
 
 

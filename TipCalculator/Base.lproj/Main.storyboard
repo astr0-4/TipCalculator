@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,13 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBZ-1j-oNN">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBZ-1j-oNN">
                                 <rect key="frame" x="112" y="54" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="MGJ-OP-tLc"/>
+                                    <constraint firstAttribute="height" constant="30" id="vdr-Pd-pn8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9F-1I-LAm">
-                                <rect key="frame" x="115" y="249" width="90" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9F-1I-LAm">
+                                <rect key="frame" x="108" y="249" width="104" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zzR-MB-eNB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Calculate Tip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -30,19 +39,33 @@
                                     <action selector="calculateTip:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8VZ-te-cnO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your tip value is..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyW-JT-JBU">
-                                <rect key="frame" x="16" y="140" width="271" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tip value is..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyW-JT-JBU">
+                                <rect key="frame" x="16" y="114" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-n7-GZa">
-                                <rect key="frame" x="112" y="198" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-n7-GZa">
+                                <rect key="frame" x="112" y="175" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="3pV-n7-GZa" secondAttribute="centerX" id="032-t4-azB"/>
+                            <constraint firstAttribute="centerX" secondItem="CBZ-1j-oNN" secondAttribute="centerX" id="78d-ZR-I7w"/>
+                            <constraint firstItem="3pV-n7-GZa" firstAttribute="top" secondItem="VyW-JT-JBU" secondAttribute="bottom" constant="40" id="7F0-uD-vvb"/>
+                            <constraint firstItem="VyW-JT-JBU" firstAttribute="top" secondItem="CBZ-1j-oNN" secondAttribute="bottom" constant="30" id="FEk-p9-2NO"/>
+                            <constraint firstAttribute="centerX" secondItem="R9F-1I-LAm" secondAttribute="centerX" id="HI2-mu-aag"/>
+                            <constraint firstItem="VyW-JT-JBU" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="MCC-R0-6w5"/>
+                            <constraint firstItem="VyW-JT-JBU" firstAttribute="centerX" secondItem="CBZ-1j-oNN" secondAttribute="centerX" id="Mf5-0p-t2x"/>
+                            <constraint firstAttribute="centerX" secondItem="CBZ-1j-oNN" secondAttribute="centerX" id="PNq-8I-W73"/>
+                            <constraint firstItem="R9F-1I-LAm" firstAttribute="top" secondItem="3pV-n7-GZa" secondAttribute="bottom" constant="44" id="gPz-x1-BvV"/>
+                            <constraint firstItem="3pV-n7-GZa" firstAttribute="width" secondItem="CBZ-1j-oNN" secondAttribute="width" id="mR6-eT-sYU"/>
+                            <constraint firstItem="CBZ-1j-oNN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="34" id="njP-sI-kEl"/>
+                            <constraint firstItem="VyW-JT-JBU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="tFa-jb-geh"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="billAmountTextField" destination="CBZ-1j-oNN" id="Fia-CU-fG2"/>
